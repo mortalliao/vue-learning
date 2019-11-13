@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="../assets/js/vue.min.js"></script>
+    <title>Hello World</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1 v-show="viewed">You have viewed this page</h1>
+        <h1 v-show="isDeleted=='Y'">You have viewed isDeleted</h1>
+
+        <h1 v-if="isDeleted=='Y'">
+            You have viewed v-if, actually pulls the element in or out the DOM
+        </h1>
+        <h1 v-else>You have viewed v-else</h1>
+
+        <div v-if="type=='A'">A</div>
+        <div v-else-if="type=='B'">B</div>
+        <div v-else-if="type=='C'">C</div>
+        <div v-else>Not A/B/C</div>
+    </div>
+
+
+
+</body>
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            viewed: true,
+            isDeleted: 'N',
+            type: 'C'
+        }
+    });
+
+</script>
+
+</html>
