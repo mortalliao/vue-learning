@@ -13,7 +13,14 @@
 <body>
 
     <div id="app">
-        {{message}}
+        v-pre: <span v-pre>{{message}}</span>
+
+        <br />
+        v-once: <span v-once>{{message}}</span>
+        <input type="text" v-model="message">
+
+        <br />
+        v-cloak: <span v-cloak>{{message}}</span>
     </div>
 
 </body>
@@ -23,7 +30,6 @@
         el: '#app',
         data: {
             message: 'Hello World'
-
         }
     });
 

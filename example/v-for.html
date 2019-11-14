@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="../assets/js/vue.min.js"></script>
+    <title>v-for</title>
+</head>
+
+<body>
+        <!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+            <script src="../assets/js/vue.min.js"></script>
+            <title>Hello World</title>
+        </head>
+        
+        <body>
+        
+            <div id="app">{{message}}</div>
+        
+        </body>
+        <script>
+        
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'Hello World'
+                }
+            });
+        
+        </script>
+        
+        </html>
+    <div id="app">
+        <ul>
+            <li style="list-style-type: none;" v-for="(todo,index) in todos">
+                {{todo.id}} {{todo.text}} {{index+1}}
+            </li>
+        </ul>
+
+        <ol>
+            <li v-for="count in count">item: {{count}}</li>
+        </ol>
+    </div>
+
+</body>
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            todos: [
+                { text: '学习前端', id: 1 },
+                { text: '学习Vue', id: 2 },
+                { text: '学习项目', id: 3 }
+            ],
+            count: 10
+        }
+    });
+
+</script>
+
+</html>

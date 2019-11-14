@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="../assets/js/vue.min.js"></script>
+    <title>Hello World</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <img v-bind:src="imgSrc" width="200px">
+        <br>
+        <a :href="anchorSrc" target="_blank">打开百度</a>
+        <hr>
+
+        <div :class="className">1. 绑定classA</div>
+        <div :class="{classA:isOk}">2. 绑定class中的判断</div>
+        <div :class="[classA, classB]">3. 绑定class中的数组</div>
+        <div :class="isOk?classA:classB">4. 绑定class中的三元表达式判断</div>
+
+        <hr>
+        <input type="checkbox" id="isTrue" v-model="isOk">
+        <label for="isTrue">isOk={{isOk}}</label>
+
+        <hr>
+        <div :style="{color:red, fontSize:font}">5. 绑定style</div>
+        <div :style="styleObject">6. 用对象绑定style样式</div>
+    </div>
+
+</body>
+
+<style>
+    .classA {
+        color: red;
+    }
+
+    .classB {
+        color: green;
+    }
+</style>
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            imgSrc: 'http://jspang.com/wp-content/uploads/2017/02/vue01-2.jpg',
+            anchorSrc: 'www.baidu.com',
+            className: 'classA',
+            isOk: false,
+            classA: 'classA',
+            classB: 'classB',
+            red: 'red',
+            font: '30px',
+            styleObject: {
+                fontSize: '24px',
+                color: 'green'
+            }
+        }
+    });
+
+</script>
+
+</html>

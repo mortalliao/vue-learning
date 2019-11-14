@@ -7,13 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <script src="../assets/js/vue.min.js"></script>
-    <title>Hello World</title>
+    <title>v-on</title>
 </head>
 
 <body>
 
     <div id="app">
-        {{message}}
+        <h1>Count: {{count}}</h1>
+        <button @click="countUp">Count Up!</button>
+        <button v-on:click="countDown">Count Down!</button>
     </div>
 
 </body>
@@ -22,8 +24,15 @@
     var app = new Vue({
         el: '#app',
         data: {
-            message: 'Hello World'
-
+            count: 0
+        },
+        methods: {
+            countUp: function () {
+                this.count++;
+            },
+            countDown: function () {
+                this.count--;
+            }
         }
     });
 
