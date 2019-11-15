@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="../assets/js/vue.min.js"></script>
+    <title>vue.directive 自定义指令</title>
+</head>
+
+<body>
+    <h1>vue.directive 自定义指令</h1>
+    <hr>
+
+    <div id="app">
+        <div v-mycommend="color" id="aaa">
+            {{num}}
+        </div>
+        <p><button @click="plus">+</button></p>
+
+        <p><button onclick="unbind()">解绑</button></p>
+    </div>
+
+</body>
+<script>
+
+    function unbind() {
+        app.$destroy();
+    }
+
+    Vue.directive('mycommend', {
+        //被绑定
+        bind: function (el, binding, vnode) {
+
+            /**
+            var s=JSON.stringify;
+            el.innerHTML = 
+                'name:'        + s(binding.name) +'<br>' + 
+                'value:'       + s(binding.value) +'<br>' + 
+                'expression:'  + s(binding.expression) +'<br>' ;
+            **/
+            el.style = 'color:' + binding.value;
+
+            console.log('1 - bind');
+        },
+        // 绑定到节点
+        inserted: function () {
+            console.log('2 - inserted');
+        },
+        //组件更新
+        update: function () {
+            console.log('3 - update');
+        },
+        //组件更新完成
+        componentUpdated: function () {
+            console.log('4 - componentUpdated');
+        },
+        //解绑
+        unbind: function () {
+            console.log('5 - unbind');
+        }
+    })
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            color: 'green',
+            num: 10
+        },
+        methods: {
+            plus: function () {
+                this.num++;
+            }
+        }
+    });
+
+</script>
+
+</html>
