@@ -7,36 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <script src="../../assets/js/vue.min.js"></script>
-    <title>component-3</title>
+    <title>other option demo</title>
 </head>
 
 <body>
+    <h1>other option demo</h1>
+    <hr>
 
     <div id="app">
+        <hello></hello>
         <world></world>
     </div>
 
 </body>
 <script>
 
-    var city = {
-        template: `<div>this is city!</div>`
-    }
+    Vue.component('hello', {
+        template: `<div>{this.$parent.message}我是全局化注册的-&lt;hello&gt;</div>`,
+        //替换插值符号
+        delimiters: ['{', '}']
+    })
 
     var world = {
-        template: `<div>
-            <p>局部注册的- &lt;world&gt;</p>
-            <city></city>
-        </div>`,
-        components: {
-            "city": city
-        }
+        template: '<div>{{this.$parent.message}}局部注册的-&lt;world&gt;</div>'
     }
 
     var app = new Vue({
         el: '#app',
         data: {
-            message: 'This is a message!'
+            message: 'Hello World'
         },
         components: {
             "world": world
