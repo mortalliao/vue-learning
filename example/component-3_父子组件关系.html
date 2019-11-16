@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="../assets/js/vue.min.js"></script>
+    <title>component-3</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <world></world>
+    </div>
+
+</body>
+<script>
+
+    var city = {
+        template: `<div>this is city!</div>`
+    }
+
+    var world = {
+        template: `<div>
+            <p>局部注册的- &lt;world&gt;</p>
+            <city></city>
+        </div>`,
+        components: {
+            "city": city
+        }
+    }
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'This is a message!'
+        },
+        components: {
+            "world": world
+        }
+    });
+
+</script>
+
+</html>

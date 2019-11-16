@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="../assets/js/vue.min.js"></script>
+    <title>component-1</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <hello></hello>
+        <helloworld></helloworld>
+    </div>
+
+</body>
+<script>
+
+    Vue.component('hello',{
+        template: `<div>全局化注册的: &lt;hello&gt;标签</div>`
+    });
+
+    var helloworld = {
+        template: `<div>局部注册的: &lt;helloworld&gt;标签</div>`
+    }
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello World'
+
+        },
+        components: {
+            "helloworld": helloworld
+        }
+    });
+
+</script>
+
+</html>
