@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="../../assets/js/vue.min.js"></script>
+    <script src="../../assets/js/jquery-3.1.1.min.js"></script>
+    <title>在Vue中使用jQuery</title>
+</head>
+
+<body>
+
+    <div id="app">
+        {{message}}
+    </div>
+
+</body>
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello World'
+        },
+        //在Vue中使用jQuery
+        mounted: function () {
+            $('#app').html('using jQuery');
+        },
+        methods: {
+            add: function () {
+                console.log("调用了Add方法");
+            }
+        }
+    });
+
+    //打印app对象，看看里边都包含了什么属性和方法。
+    console.log(app);
+    app.add();
+
+</script>
+
+</html>
